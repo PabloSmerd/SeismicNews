@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Навигация */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* Hero секция */
+.news-hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-letters {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.letter {
+    font-size: 300px;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    animation: letterPulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.3s; }
+.letter:nth-child(3) { animation-delay: 0.6s; }
+.letter:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes letterPulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+.hero-typewriter {
+    font-size: 42px;
+    color: #999;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    margin-top: 250px;
+    animation: typing 4s ease-in-out 1s forwards;
+    width: 0;
+    max-width: 90%;
+}
+
+@keyframes typing {
+    from { 
+        width: 0; 
+    }
+    to { 
+        width: 100%; 
+    }
+}
+
+/* Секция новостей */
+.news-section {
+    min-height: 100vh;
+    padding: 120px 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.news-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.article-item {
+    background: #111;
+    padding: 60px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.article-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.article-item:hover {
+    background: #1a1a1a;
+}
+
+.article-content {
+    flex: 1;
+}
+
+.article-date {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.article-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.article-excerpt {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.article-arrow {
+    font-size: 40px;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.article-item:hover .article-arrow {
+    color: #fff;
+    transform: translateX(10px);
+}
+
+/* Модальное окно */
+.news-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.news-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    margin: auto;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+    z-index: 2001;
+    animation: modalSlideUp 0.4s ease;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 80px 60px;
+}
+
+.modal-date {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 60px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+    line-height: 1.1;
+}
+
+.modal-text {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.modal-text p {
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    padding: 60px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000;
+}
+
+footer p {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+    .letter {
+        font-size: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 30px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+    .nav-links a {
+        font-size: 12px;
+    }
+    .letter {
+        font-size: 80px;
+    }
+    .news-letters {
+        gap: 10px;
+        top: 40%;
+    }
+    .hero-typewriter {
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-top: 120px;
+    }
+    .news-section {
+        padding: 80px 30px;
+    }
+    .article-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 30px;
+    }
+    .article-title {
+        font-size: 24px;
+    }
+    .article-arrow {
+        margin-top: 20px;
+    }
+    .modal-body {
+        padding: 60px 30px;
+    }
+    .modal-title {
+        font-size: 36px;
+    }
+    .modal-close {
+        top: 20px;
+        right: 20px;
+    }
+}

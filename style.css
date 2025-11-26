@@ -1,0 +1,635 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Навигация */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* Hero секция */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(100, 100, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.hero h1 {
+    font-size: 240px;
+    font-weight: 900;
+    letter-spacing: -5px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff 0%, #666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero p {
+    font-size: 20px;
+    color: #999;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+.cta-button {
+    margin-top: 50px;
+    padding: 18px 50px;
+    background: #fff;
+    color: #000;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+.cta-button:hover {
+    background: #ddd;
+    transform: translateY(-2px);
+}
+
+/* Игровые секции */
+.game-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.game-section:first-of-type {
+    position: relative;
+}
+
+.game-section:first-of-type::before {
+    content: 'S';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: colorShift 4s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes colorShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.game-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.game-info {
+    flex: 1;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s ease;
+}
+
+.game-section.visible .game-info {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.game-number {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.game-name {
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.game-description {
+    font-size: 18px;
+    color: #999;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 40px;
+}
+
+.game-play-btn {
+    padding: 15px 40px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: fit-content;
+}
+
+.game-play-btn:hover {
+    background: #fff;
+    color: #0000;
+}
+
+.game-visual {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 1s ease 0.3s;
+}
+
+.game-section.visible .game-visual {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.game-visual-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+.game-section:hover .game-visual-inner {
+    transform: scale(1.05);
+}
+
+/* Разные цвета для игр */
+.game-section:nth-child(2) .game-visual-inner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.game-section:nth-child(3) .game-visual-inner {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.game-section:nth-child(4) .game-visual-inner {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.game-section:nth-child(5) .game-visual-inner {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.game-section:nth-child(6) .game-visual-inner {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.game-section:nth-child(7) .game-visual-inner {
+    background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%);
+}
+
+
+/* Секции контента */
+.section {
+    min-height: 100vh;
+    padding: 120px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-content {
+    max-width: 1400px;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Команда */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.team-card {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.team-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-avatar {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, #333 0%, #111 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 900;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-card:hover .team-avatar {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.team-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.team-role {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.team-bio {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.6;
+}
+
+/* Статьи */
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 60px;
+}
+
+.article-item {
+    background: #111;
+    padding: 60px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-item:hover {
+    background: #1a1a1a;
+}
+
+.article-content {
+    flex: 1;
+}
+
+.article-date {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.article-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.article-excerpt {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.article-arrow {
+    font-size: 40px;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.article-item:hover .article-arrow {
+    color: #fff;
+    transform: translateX(10px);
+}
+
+/* Footer */
+footer {
+    padding: 60px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000;
+}
+
+footer p {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.letter-s {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: colorShift 4s ease-in-out infinite;
+}
+
+.letter-e {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: colorShift 4s ease-in-out infinite;
+}
+.letter-i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: colorShift 4s ease-in-out infinite;
+}
+.letter-m {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: colorShift 4s ease-in-out infinite;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+    .hero h1 {
+        font-size: 80px;
+    }
+    .section-title {
+        font-size: 60px;
+    }
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .game-name {
+        font-size: 60px;
+    }
+    .letter-s {
+        font-size: 400px;
+    }
+    .letter-e {
+        font-size: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 30px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+    .nav-links a {
+        font-size: 12px;
+    }
+    .hero h1 {
+        font-size: 50px;
+        letter-spacing: -2px;
+    }
+    .hero p {
+        font-size: 14px;
+    }
+    .section {
+        padding: 80px 30px;
+    }
+    .section-title {
+        font-size: 40px;
+    }
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .article-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 30px;
+    }
+    .article-title {
+        font-size: 24px;
+    }
+    .article-arrow {
+        margin-top: 20px;
+    }
+    .game-content {
+        flex-direction: column;
+    }
+    .game-info {
+        padding: 40px 30px;
+    }
+    .game-name {
+        font-size: 40px;
+    }
+    .game-visual {
+        min-height: 300px;
+    }
+    .letter-s {
+        font-size: 200px;
+    }
+    .letter-e {
+        font-size: 200px;
+    }
+}
+/* Добавьте этот код в ваш style.css */
+
+/* Желтый фон для секции с буквой I (Insane My Game) */
+.game-section:nth-child(8) .game-visual-inner {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+}
+
+.letter-u {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 600px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 0%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: colorShift 4s ease-in-out infinite;
+}
+
+/* Адаптив для буквы на мобильных */
+@media (max-width: 1200px) {
+    .letter-u {
+        font-size: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .letter-u {
+        font-size: 200px;
+    }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEISMIC - News</title>
+
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav>
+        <div class="logo">SEISMIC</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="#news">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero секция -->
+    <section class="news-hero">
+        <div class="news-letters">
+            <div class="letter">N</div>
+            <div class="letter">E</div>
+            <div class="letter">W</div>
+            <div class="letter">S</div>
+        </div>
+        <p class="hero-typewriter">STAY CONNECTED WITH SEISMIC</p>
+    </section>
+
+    <!-- Секция новостей -->
+    <section class="news-section" id="news">
+        <div class="news-container">
+            <div class="articles-list">
+                <div class="article-item" data-news="1">
+                    <div class="article-content">
+                        <div class="article-date">March 6, 2025 </div>
+                        <div class="article-title">Seismic Raises $7M Led by a16z Crypto — Full Breakdown</div>
+                        <div class="article-excerpt">
+                            Who invested
+
+The round was led by a16z Crypto (Andreessen Horowitz).
+
+Participating funds included Polychain Capital, 1kx, dao5, and NGC Ventures.
+                        </div>
+                    </div>
+                    <div class="article-arrow">→</div>
+                </div>
+
+                <div class="article-item" data-news="2">
+                    <div class="article-content">
+                        <div class="article-date">March 27, 2025</div>
+                        <div class="article-title">Developer Testnet Launch</div>
+                        <div class="article-excerpt">
+                            Announcement of testnet plan: On March 6, 2025, Seismic announced that the developer testnet would be launched in about one month after the funding round.
+                        </div>
+                    </div>
+                    <div class="article-arrow">→</div>
+                </div>
+
+                <div class="article-item" data-news="3">
+                    <div class="article-content">
+                        <div class="article-date">March 26, 2025</div>
+                        <div class="article-title">Mastering Seismic DevNet: A Complete Guide for Encrypted Smart Contract Deployment</div>
+                        <div class="article-excerpt">
+                            Deploy an encrypted contract Devnet Seismic
+                        </div>
+                    </div>
+                    <div class="article-arrow">→</div>
+                </div>
+
+                <div class="article-item" data-news="4">
+                    <div class="article-content">
+                        <div class="article-date">April 7, 2025</div>
+                        <div class="article-title">Seismic Testnet Faucet Goes Live</div>
+                        <div class="article-excerpt">
+                            On April 7, 2025, Seismic opened a testnet faucet, allowing participants to claim free test tokens for its developer network.
+                        </div>
+                    </div>
+                    <div class="article-arrow">→</div>
+                </div>
+
+                <div class="article-item" data-news="5">
+                    <div class="article-content">
+                        <div class="article-date">February 18, 2025</div>
+                        <div class="article-title">Seismic Introduces Its Mission to Solve “Forced Transparency” in Layer-1 Blockchains</div>
+                        <div class="article-excerpt">
+                            On February 18, 2025, Seismic founder Lyron Co Ting Keh published the article “Introducing Seismic.”
+In it, he explained that most existing Layer-1 blockchains have a foundational flaw:
+
+they enforce complete transparency by design.
+                        </div>
+                    </div>
+                    <div class="article-arrow">→</div>
+                </div>
+
+                <div class="article-item" data-news="6">
+                    <div class="article-content">
+                        <div class="article-date">November 12, 2025</div>
+                        <div class="article-title">Seismic Raises Additional $10M</div>
+                        <div class="article-excerpt">
+                            Key participants in this round included Polychain Capital, dao5, Amber Group, TrueBridge Capital, and LayerZero Labs. This brings Seismic’s total funding to $17 million, when combined with its earlier seed round..
+                        </div>
+                    </div>
+                    <div class="article-arrow">→</div>
+                </div>
+
+                <div class="article-item" data-news="7">
+                    <div class="article-content">
+                        <div class="article-date">November 14, 2025</div>
+                        <div class="article-title">Seismic aims to “break the privacy barrier”</div>
+                        <div class="article-excerpt">
+                            Seismic aims to “break the privacy barrier” that prevents fintech companies from using public blockchains for sensitive services — such as private lending and cash accounts.
+                        </div>
+                    </div>
+                    <div class="article-arrow">→</div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно -->
+    <div class="news-modal" id="newsModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-body">
+                <div class="modal-date" id="modalDate"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-text" id="modalText"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 SEISMIC PROJECT. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- Подключение JS -->
+    <script src="news.js"></script>
+</body>
+</html>
